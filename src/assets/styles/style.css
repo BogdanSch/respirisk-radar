@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+.wrapper {
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body {
+  font-family: "Montserrat", sans-serif;
+}
+h1 {
+  font-weight: 800;
+}
+.image {
+  display: block;
+  max-width: 50%;
+  margin: 0 auto;
+}
+/* radar-card - Start */
+.radar-card {
+  transition: all 0.7s ease;
+}
+.radar-card:hover {
+  transform: translateY(-4px);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}

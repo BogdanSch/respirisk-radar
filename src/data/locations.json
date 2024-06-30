@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Stockholm, Zweden",
+    "aqi": 10,
+    "respiratoryIllnessPercentage": 5
+  },
+  { "name": "Beijing, China", "aqi": 110, "respiratoryIllnessPercentage": 12 },
+  {
+    "name": "Los Angeles, Verenigde Staten",
+    "aqi": 101,
+    "respiratoryIllnessPercentage": 8
+  },
+  {
+    "name": "Calgary, Canada",
+    "aqi": 25,
+    "respiratoryIllnessPercentage": 4
+  },
+  {
+    "name": "Delhi, India",
+    "aqi": 215,
+    "respiratoryIllnessPercentage": 15
+  }
+]
