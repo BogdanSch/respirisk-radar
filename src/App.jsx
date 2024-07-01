@@ -4,14 +4,10 @@ import Image from "./components/Image";
 
 import peopleGroupImage from "./assets/images/people-group.png";
 import locationsData from "./data/locations.json";
-
-const calculateSicknessProbability = (aqi, respiratoryIllnessPercentage) => {
-  return (aqi / 100) * (respiratoryIllnessPercentage / 100) * 1.15;
-};
-
-const calculateSicknessCount = (probability, groupSize) => {
-  return Math.round(probability * groupSize);
-};
+import {
+  calculateSicknessProbability,
+  calculateSicknessCount,
+} from "./utils/sicknessProbabilityCalculator.js";
 
 const App = () => {
   const [locations, setLocations] = useState([]);
@@ -43,7 +39,7 @@ const App = () => {
   return (
     <main>
       <section className="radar">
-        <div className="container mt-5">
+        <div className="container mt-5 mb-5">
           <h1 className="text-center">Bereken de kans op Ademhalingsziekte</h1>
           <div className="row justify-content-center mt-3">
             <div className="col-md-6 card p-4 radar-card">
