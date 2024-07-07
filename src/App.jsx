@@ -8,14 +8,12 @@ import Image from "./components/Image";
 
 import peopleGroupImage from "./assets/images/people-group.png";
 import locationsData from "./data/locations.json";
+import {
+  calculateSicknessProbability,
+  calculateSicknessCount,
+} from "./utils/sicknessProbabilityCalculator";
 
-const calculateSicknessProbability = (aqi, respiratoryIllnessPercentage) => {
-  return (aqi / 100) * (respiratoryIllnessPercentage / 100) * 1.15;
-};
-
-const calculateSicknessCount = (probability, groupSize) => {
-  return Math.round(probability * groupSize);
-};
+const groupSize = 10;
 
 const App = () => {
   const locations = useSelector((state) => state.locations.value);
