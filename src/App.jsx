@@ -1,4 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
+
+import { useSelector, useDispatch } from "react-redux";
+import { setLocations } from "./app/features/locations/locationsSlice";
+import { setSelectedLocation } from "./app/features/selectedLocation/selectedLocationSlice";
 
 import Image from "./components/Image";
 
@@ -12,25 +16,28 @@ const calculateSicknessProbability = (aqi, respiratoryIllnessPercentage) => {
 const calculateSicknessCount = (probability, groupSize) => {
   return Math.round(probability * groupSize);
 };
+const groupSize = 10;
 
 const App = () => {
-  const [locations, setLocations] = useState([]);
-  const [selectedLocation, setSelectedLocation] = useState(null);
-  const groupSize = 10;
+  const locations = useSelector((state) => state.locations.value);
+  const selectedLocation = useSelector((state) => state.selectedLocation.value);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    setLocations(locationsData);
-    setSelectedLocation(locationsData[0]);
-  }, []);
+    dispatch(setLocations(locationsData));
+    dispatch(setSelectedLocation(locationsData[0]));
+  }, [locationsData]);
 
   const handleLocationChange = (event) => {
     const locationName = event.target.value;
-    const location = locations.find((loc) => loc.name === locationName);
-    setSelectedLocation(location);
+    const location = locations.find(
+      (location) => location.name === locationName
+    );
+    dispatch(setSelectedLocation(location));
   };
 
   if (!selectedLocation) {
-    return <div>Loading...</div>;
+    return <div className="loader">Loading...</div>;
   }
 
   const sicknessProbability = calculateSicknessProbability(
