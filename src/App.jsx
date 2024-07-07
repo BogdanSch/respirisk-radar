@@ -16,7 +16,6 @@ const calculateSicknessProbability = (aqi, respiratoryIllnessPercentage) => {
 const calculateSicknessCount = (probability, groupSize) => {
   return Math.round(probability * groupSize);
 };
-const groupSize = 10;
 
 const App = () => {
   const locations = useSelector((state) => state.locations.value);
@@ -50,7 +49,7 @@ const App = () => {
   return (
     <main>
       <section className="radar">
-        <div className="container mt-5">
+        <div className="container mt-5 mb-5">
           <h1 className="text-center">Bereken de kans op Ademhalingsziekte</h1>
           <div className="row justify-content-center mt-3">
             <div className="col-md-6 card p-4 radar-card">
